@@ -67,3 +67,13 @@ textarea {
 	height: 26px;
 	fill: #8ab4f8;
 }
+
+.arrow-container {
+	padding: 15px;	
+}
+
+.arrow-container svg {
+	width: 26px;
+	height: 26px;
+	fill: #5a5a5d;
+}
