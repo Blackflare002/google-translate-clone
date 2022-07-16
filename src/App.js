@@ -1,15 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextBox from "./components/TextBox";
 import Arrows from "./components/Arrows";
 import Button from "./components/Button";
 import Modal from "./components/Modal";
+import axios from "axios";
 
 function App() {
 	const [inputLanguage, setInputLanguage] = useState("English");
 	const [outputLanguage, setOutputLanguage] = useState("German");
 	const [showModal, setShowModal] = useState(null);
+	const [languages, setLanguages] = useState(null);
 
-	console.log("Show Modal: ", showModal);
+	const getLanguages = () => {
+		const options = {
+			method: "GET",
+			url: "https://google-translate20.p.rapidapi.com/languages",
+			headers: {
+				"X-RapidAPI-Key":
+					"6e348233b7msh0cf4337c46e7182p1736bcjsne65c48d81a1d",
+				"X-RapidAPI-Host": "google-translate20.p.rapidapi.com",
+			},
+		};
+		axios
+			.request(options)
+			.then(function (response) {
+				console.log(response.data);
+				const arrayOfData = Object.keys(response.data.data).map(
+					(key) => response.data.data[key]
+				);
+				setLanguages(arrayOfData);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
+	};
+
+	console.log("languages: ", languages);
+
+	useEffect(() => {
+		getLanguages();
+	}, []);
 
 	const handleClick = () => {
 		setInputLanguage(outputLanguage);
@@ -35,7 +65,9 @@ function App() {
 					></TextBox>
 				</>
 			)}
-			{showModal && <Modal />}
+			{showModal && (
+				<Modal setShowModal={setShowModal} languages={languages} />
+			)}
 		</div>
 	);
 }
