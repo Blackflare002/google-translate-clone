@@ -29,7 +29,7 @@ const TextBox = ({
 			/>
 			{style === "input" && (
 				<div className="delete" onClick={handleClick}>
-					X
+					🗴
 				</div>
 			)}
 		</div>
