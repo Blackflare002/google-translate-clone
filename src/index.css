@@ -69,11 +69,75 @@ textarea {
 }
 
 .arrow-container {
-	padding: 15px;	
+	padding: 15px;
 }
 
 .arrow-container svg {
 	width: 26px;
 	height: 26px;
 	fill: #5a5a5d;
+}
+
+.option-list {
+	width: 100%;
+}
+
+.search-bar {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+.search-bar input {
+	background: url(https://www.gstatic.com/images/icons/material/system/2x/search_grey600_24dp.png)
+		right 8px center no-repeat;
+	background-size: 24px 24px;
+	padding-left: 16px;
+	padding-right: 40px;
+	width: 90% !important;
+	outline: none;
+}
+
+.search-bar .close-button svg {
+	width: 30px;
+	height: 30px;
+	padding: 6px;
+	fill: #5a5a5d;
+}
+
+.option-container {
+	height: 250px;
+	overflow: auto;
+}
+
+.option-list ul {
+	margin: 15px;
+	padding: 0;
+	height: 1300px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.option-list li {
+	color: #bcd1c6;
+	font-size: 14px;
+	padding: 8px;
+	list-style-type: none;
+	border-radius: 4px;
+}
+
+.option-list li:hover {
+	background-color: #5a5a5d;
+}
+
+.list-item {
+	display: flex;
+}
+
+.list-item .icon {
+	padding: 8px;
+	width: 11px;
+	color: #8ab4f8;
 }
