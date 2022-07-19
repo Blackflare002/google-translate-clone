@@ -40,7 +40,7 @@ textarea {
 	border: none;
 	resize: none;
 	padding: 18px;
-	width: 200px !important;
+	/* width: 300px !important; */
 	height: 146px;
 	border-radius: 10px;
 	outline: none;
@@ -140,4 +140,10 @@ textarea {
 	padding: 8px;
 	width: 11px;
 	color: #8ab4f8;
+}
+
+.button-container {
+	color: #bcd1c6;
+	padding: 18px;
+	height: 20px;
 }

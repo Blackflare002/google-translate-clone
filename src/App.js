@@ -10,6 +10,8 @@ function App() {
 	const [outputLanguage, setOutputLanguage] = useState("German");
 	const [showModal, setShowModal] = useState(null);
 	const [languages, setLanguages] = useState(null);
+	const [textToTranslate, setTextToTranslate] = useState("");
+	const [translatedText, setTranslatedText] = useState("");
 
 	// console.log("input language: ", inputLanguage);
 
@@ -37,7 +39,36 @@ function App() {
 			});
 	};
 
-	console.log("languages: ", languages);
+	// console.log("languages: ", languages);
+
+	const translate = () => {
+		const axios = require("axios");
+		const options = {
+			method: "GET",
+			url: "https://google-translate20.p.rapidapi.com/translate",
+			params: {
+				text: textToTranslate,
+				tl: outputLanguage,
+				sl: inputLanguage,
+			},
+			headers: {
+				"X-RapidAPI-Key":
+					"6e348233b7msh0cf4337c46e7182p1736bcjsne65c48d81a1d",
+				"X-RapidAPI-Host": "google-translate20.p.rapidapi.com",
+			},
+		};
+		axios
+			.request(options)
+			.then(function (response) {
+				console.log(response.data);
+				setTranslatedText(response.data);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
+	};
+
+	console.log("translated: ", translatedText);
 
 	useEffect(() => {
 		getLanguages();
@@ -64,7 +95,10 @@ function App() {
 						style="output"
 						selectedLanguage={outputLanguage}
 						setShowModal={setShowModal}
-					></TextBox>
+					/>
+					<div className="button-container" onClick={translate}>
+						<Button/>
+					</div>
 				</>
 			)}
 			{showModal && (
