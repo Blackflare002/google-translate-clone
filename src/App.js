@@ -11,6 +11,8 @@ function App() {
 	const [showModal, setShowModal] = useState(null);
 	const [languages, setLanguages] = useState(null);
 
+	// console.log("input language: ", inputLanguage);
+
 	const getLanguages = () => {
 		const options = {
 			method: "GET",
@@ -66,7 +68,18 @@ function App() {
 				</>
 			)}
 			{showModal && (
-				<Modal setShowModal={setShowModal} languages={languages} />
+				<Modal
+					setShowModal={setShowModal}
+					languages={languages}
+					chosenLanguage={
+						showModal === "input" ? inputLanguage : outputLanguage
+					}
+					setChosenLanguage={
+						showModal === "input"
+							? setInputLanguage
+							: setOutputLanguage
+					}
+				/>
 			)}
 		</div>
 	);
