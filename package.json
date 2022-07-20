@@ -1,6 +1,8 @@
 {
 	"name": "my-app",
 	"version": "0.1.0",
+	"description": "This is my Google Translate clone app.",
+	"author": "Shane Phillips, Ania Kubow",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.4",
