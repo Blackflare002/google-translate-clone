@@ -33,6 +33,7 @@ input {
 	display: flex;
 	flex-direction: column;
 	width: 300px;
+	/* cursor: pointer; */
 }
 
 textarea {
@@ -51,6 +52,7 @@ textarea {
 
 .output textarea {
 	background-color: #303134;
+	color: #f8f8ff;
 }
 
 .input textarea {
@@ -61,6 +63,7 @@ textarea {
 	padding: 5px 15px;
 	font-size: 15px;
 	color: #8ab4f8;
+	cursor: pointer;
 }
 
 .select-drop-down .down-arrow svg {
@@ -70,16 +73,26 @@ textarea {
 	width: 26px;
 	height: 26px;
 	fill: #8ab4f8;
+	cursor: pointer;
 }
 
 .arrow-container {
-	padding: 15px;
+	padding: 10px;
 }
 
 .arrow-container svg {
 	width: 26px;
 	height: 26px;
-	fill: #5a5a5d;
+	fill: #f8f8ff;
+	border: 2px solid grey;
+	padding: 5px;
+	position: relative;
+	top: -10px;
+	cursor: pointer;
+}
+
+.arrow-container svg:hover {
+	background-color: #8ab4f8;
 }
 
 .option-list {
@@ -147,15 +160,23 @@ textarea {
 }
 
 .button-container {
-	color: #bcd1c6;
-	padding: 18px;
+	color: #f8f8ff;
+	padding: 10px;
 	height: 20px;
+	border: 2px solid grey;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.button-container:hover {
+	background-color: #8ab4f8;
 }
 
 .input .delete {
 	position: relative;
-	left: 265px;
-	top: -165px;
+	left: 275px;
+	top: -189px;
 	font-size: 30px;
-	color: #bcd1c6;
+	color: black;
+	cursor: pointer;
 }

@@ -13,7 +13,7 @@ function App() {
 	const [textToTranslate, setTextToTranslate] = useState("");
 	const [translatedText, setTranslatedText] = useState("");
 
-	console.log("input language: ", inputLanguage);
+	// console.log("input language: ", inputLanguage);
 
 	const getLanguages = async () => {
 		const response = await axios("http://localhost:8000/languages");
