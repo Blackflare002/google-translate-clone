@@ -13,69 +13,30 @@ function App() {
 	const [textToTranslate, setTextToTranslate] = useState("");
 	const [translatedText, setTranslatedText] = useState("");
 
-	// console.log("input language: ", inputLanguage);
+	console.log("input language: ", inputLanguage);
 
 	const getLanguages = async () => {
 		const response = await axios("http://localhost:8000/languages");
 		setLanguages(response.data);
-		// const options = {
-		// 	method: "GET",
-		// 	url: "https://google-translate20.p.rapidapi.com/languages",
-		// 	headers: {
-		// 		"X-RapidAPI-Key":
-		// 			"6e348233b7msh0cf4337c46e7182p1736bcjsne65c48d81a1d",
-		// 		"X-RapidAPI-Host": "google-translate20.p.rapidapi.com",
-		// 	},
-		// };
-		// axios
-		// 	.request(options)
-		// 	.then(function (response) {
-		// 		console.log(response.data);
-		// 		const arrayOfData = Object.keys(response.data.data).map(
-		// 			(key) => response.data.data[key]
-		// 		);
-		// 		setLanguages(arrayOfData);
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.error(error);
-		// 	});
 	};
 
 	// console.log("languages: ", languages);
 
 	const translate = async () => {
-		const data = { textToTranslate, outputLanguage, inputLanguage };
-		const response = await axios(
+		console.log("trainsalte");
+		const data = {
+			textToTranslate,
+			outputLanguage,
+			inputLanguage,
+		};
+		const response = await axios.get(
 			"http://localhost:8000/translation",
 			{
 				params: data,
 			}
 		);
-		setTranslatedText(response.data);
-		// const axios = require("axios");
-		// const options = {
-		// 	method: "GET",
-		// 	url: "https://google-translate20.p.rapidapi.com/translate",
-		// 	params: {
-		// 		text: textToTranslate,
-		// 		tl: outputLanguage,
-		// 		sl: inputLanguage,
-		// 	},
-		// 	headers: {
-		// 		"X-RapidAPI-Key":
-		// 			"6e348233b7msh0cf4337c46e7182p1736bcjsne65c48d81a1d",
-		// 		"X-RapidAPI-Host": "google-translate20.p.rapidapi.com",
-		// 	},
-		// };
-		// axios
-		// 	.request(options)
-		// 	.then(function (response) {
-		// 		console.log(response.data);
-		// 		setTranslatedText(response.data.data.translation);
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.error(error);
-		// 	});
+		console.log("response", response);
+		setTranslatedText(response.data.data);
 	};
 
 	console.log("translated: ", translatedText);

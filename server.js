@@ -50,8 +50,12 @@ app.get("/translation", async (req, res) => {
 			"https://google-translate20.p.rapidapi.com/translate",
 			options
 		);
-
-		res.status(200).json(response.data.data.translation);
+		console.log("LOG: ", response.data.data.translation);
+		res.status(200).json({
+			status: 200,
+			message: "This is the server response.",
+			data: response.data.data.translation,
+		});
 	} catch (err) {
 		console.log(err);
 		res.status(500).json({ message: err });

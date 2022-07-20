@@ -53,6 +53,10 @@ textarea {
 	background-color: #303134;
 }
 
+.input textarea {
+	background-color: #f8f8ff;
+}
+
 .select-drop-down input {
 	padding: 5px 15px;
 	font-size: 15px;
